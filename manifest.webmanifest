@@ -1,7 +1,7 @@
 {
-  "name": "GateKeeper — MyGate",
-  "short_name": "GateKeeper",
-  "description": "MyGate app clone — walk the amenity gym booking flow. Works offline.",
+  "name": "mygate",
+  "short_name": "mygate",
+  "description": "MyGate app clone — amenity booking flow. Works offline.",
   "icons": [
     {
       "src": "favicon.svg",
@@ -16,11 +16,11 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#f7d000",
+  "theme_color": "#efe9df",
   "background_color": "#161517",
   "display": "standalone",
   "orientation": "portrait-primary",
   "scope": "./",
-  "start_url": "./index.html",
+  "start_url": "./screens/02_home.html",
   "categories": ["lifestyle", "utilities"]
 }

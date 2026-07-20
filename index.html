@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>GateKeeper — MyGate Clone Screens</title>
+  <title>mygate — Screens</title>
   <link rel="manifest" href="manifest.webmanifest" />
-  <meta name="theme-color" content="#f7d000" />
+  <meta name="theme-color" content="#efe9df" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="GateKeeper" />
+  <meta name="apple-mobile-web-app-title" content="mygate" />
   <link rel="apple-touch-icon" href="favicon.svg" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -152,10 +152,10 @@
 <body>
   <div class="wrap">
     <header class="head">
-      <span class="head__badge">● GateKeeper</span>
-      <h1>MyGate — Gym Booking Flow</h1>
-      <p>Pixel-accurate recreations of the app, each rendered inside a phone frame. Tap screen 01 and walk the whole booking flow, or open any screen directly.</p>
-      <button class="install-btn" id="installBtn" style="display:none;">⬇ Install app</button>
+      <span class="head__badge">● mygate</span>
+      <h1>mygate — Amenity Booking Flow</h1>
+      <p>Pixel-accurate recreations of the app, each rendered inside a phone frame. Tap Home and walk the whole booking flow, or open any screen directly.</p>
+      <button class="install-btn" id="installBtn" style="display:none;">⬇ Install mygate</button>
     </header>
 
     <main class="grid" id="grid"></main>
@@ -164,14 +164,14 @@
   <script>
     // Register each screen here in sequence as it's built.
     const SCREENS = [
-      { file: 'screens/01_launch.html', label: 'App Launch' },
       { file: 'screens/02_home.html', label: 'Home' },
       { file: 'screens/03_quick_actions.html', label: 'Quick Actions' },
       { file: 'screens/04_amenities.html', label: 'Amenities · My Bookings' },
       { file: 'screens/05_choose_location.html', label: 'Choose Location' },
-      { file: 'screens/06_select_amenity.html', label: 'Select Amenity' },
-      { file: 'screens/07_gym_date.html', label: 'Gym · Select a Date' },
-      { file: 'screens/09_gym_timeslots.html', label: 'Gym · Timeslots' },
+      { file: 'screens/06_select_amenity.html', label: 'Health & Fitness · Amenities' },
+      { file: 'screens/11_outdoor_games.html', label: 'Outdoor Games · Amenities' },
+      { file: 'screens/07_gym_date.html', label: 'Select a Date' },
+      { file: 'screens/09_gym_timeslots.html', label: 'Timeslots' },
       { file: 'screens/10_booking_success.html', label: 'Booking Successful' },
     ];
 

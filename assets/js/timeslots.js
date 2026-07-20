@@ -9,6 +9,10 @@
   var book = document.getElementById('bookNowBtn');
   if (!book || !agree) return;
 
+  var amenity = new URLSearchParams(location.search).get('amenity') || 'Gym';
+  var titleEl = document.getElementById('amenityTitle');
+  if (titleEl) titleEl.textContent = amenity;
+
   var selected = null;
   var agreed = agree.classList.contains('agree-box--checked');
 

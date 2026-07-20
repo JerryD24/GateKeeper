@@ -1,5 +1,5 @@
 /* GateKeeper service worker — app-shell cache, network-first for freshness. */
-const CACHE = 'gatekeeper-v1';
+const CACHE = 'mygate-v2';
 const ASSETS = [
   './',
   './index.html',
@@ -15,7 +15,6 @@ const ASSETS = [
   './assets/js/pwa.js',
   './assets/js/gym.js',
   './assets/js/timeslots.js',
-  './screens/01_launch.html',
   './screens/02_home.html',
   './screens/03_quick_actions.html',
   './screens/04_amenities.html',
@@ -23,7 +22,8 @@ const ASSETS = [
   './screens/06_select_amenity.html',
   './screens/07_gym_date.html',
   './screens/09_gym_timeslots.html',
-  './screens/10_booking_success.html'
+  './screens/10_booking_success.html',
+  './screens/11_outdoor_games.html'
 ];
 
 self.addEventListener('install', (e) => {
