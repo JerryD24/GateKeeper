@@ -65,6 +65,28 @@
 }
 .mb-card__row svg { width: 18px; height: 18px; color: #6a6a6a; flex: 0 0 auto; }
 
+.mb-pill--confirmed { background: #4cb27a; }
+
+.mb-actions {
+  display: flex;
+  border-top: 1px solid #ededed;
+  margin: 4px -18px -18px;
+}
+.mb-actions__btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2b6fb3;
+  cursor: pointer;
+}
+.mb-actions__btn + .mb-actions__btn { border-left: 1px solid #ededed; }
+.mb-actions__btn svg { width: 16px; height: 16px; }
+
 .book-amenity-fab {
   position: absolute;
   bottom: 30px;
