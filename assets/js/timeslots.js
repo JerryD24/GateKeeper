@@ -9,9 +9,20 @@
   var book = document.getElementById('bookNowBtn');
   if (!book || !agree) return;
 
-  var amenity = new URLSearchParams(location.search).get('amenity') || 'Gym';
+  var params = new URLSearchParams(location.search);
+  var amenity = params.get('amenity') || 'Gym';
+  var from = params.get('from') || '06_select_amenity.html';
   var titleEl = document.getElementById('amenityTitle');
   if (titleEl) titleEl.textContent = amenity;
+
+  // Back arrow returns to the date page for the same amenity/source.
+  var backBar = document.getElementById('backBar');
+  if (backBar) {
+    backBar.setAttribute(
+      'data-nav',
+      '07_gym_date.html?from=' + encodeURIComponent(from) + '&amenity=' + encodeURIComponent(amenity)
+    );
+  }
 
   var selected = null;
   var agreed = agree.classList.contains('agree-box--checked');

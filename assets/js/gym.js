@@ -12,10 +12,16 @@
   var btn = document.getElementById('selectTimeslotBtn');
   if (!gridEl || !monthEl || !btn) return;
 
-  // Carry the chosen amenity name through the flow (?amenity=...).
-  var amenity = new URLSearchParams(location.search).get('amenity') || 'Gym';
+  // Carry the chosen amenity name + source list through the flow.
+  var params = new URLSearchParams(location.search);
+  var amenity = params.get('amenity') || 'Gym';
+  var from = params.get('from') || '06_select_amenity.html';
   var titleEl = document.getElementById('amenityTitle');
   if (titleEl) titleEl.textContent = amenity;
+
+  // Back arrow returns to the amenity list we came from.
+  var backBar = document.getElementById('backBar');
+  if (backBar) backBar.setAttribute('data-nav', from);
 
   var today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -48,7 +54,7 @@
     selected = cell;
     btn.classList.remove('btn-disabled');
     btn.classList.add('btn-yellow');
-    btn.setAttribute('data-nav', '09_gym_timeslots.html?amenity=' + encodeURIComponent(amenity));
+    btn.setAttribute('data-nav', '09_gym_timeslots.html?amenity=' + encodeURIComponent(amenity) + '&from=' + encodeURIComponent(from));
     try {
       sessionStorage.setItem('gk_booking_date', d.toDateString());
     } catch (e) { /* ignore */ }
