@@ -2,8 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>GateKeeper — MyGate Clone Screens</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#f7d000" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="GateKeeper" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -125,6 +132,21 @@
       border-radius: 20px;
       color: #9aa3b2;
     }
+
+    .install-btn {
+      margin-top: 22px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 26px;
+      border-radius: 999px;
+      background: #f7d000;
+      color: #1a1a1a;
+      font-size: 15px;
+      font-weight: 700;
+      box-shadow: 0 10px 24px -10px rgba(247, 208, 0, 0.7);
+    }
+    .install-btn:hover { filter: brightness(1.05); }
   </style>
 </head>
 <body>
@@ -133,6 +155,7 @@
       <span class="head__badge">● GateKeeper</span>
       <h1>MyGate — Gym Booking Flow</h1>
       <p>Pixel-accurate recreations of the app, each rendered inside a phone frame. Tap screen 01 and walk the whole booking flow, or open any screen directly.</p>
+      <button class="install-btn" id="installBtn" style="display:none;">⬇ Install app</button>
     </header>
 
     <main class="grid" id="grid"></main>
@@ -148,7 +171,6 @@
       { file: 'screens/05_choose_location.html', label: 'Choose Location' },
       { file: 'screens/06_select_amenity.html', label: 'Select Amenity' },
       { file: 'screens/07_gym_date.html', label: 'Gym · Select a Date' },
-      { file: 'screens/08_gym_date_selected.html', label: 'Date Selected' },
       { file: 'screens/09_gym_timeslots.html', label: 'Gym · Timeslots' },
       { file: 'screens/10_booking_success.html', label: 'Booking Successful' },
     ];
@@ -173,5 +195,6 @@
       });
     }
   </script>
+  <script src="assets/js/pwa.js"></script>
 </body>
 </html>

@@ -104,3 +104,11 @@
   font-weight: 600;
   border-color: #14371f;
 }
+.cal-cell--avail { cursor: pointer; }
+
+.cal-hint {
+  text-align: center;
+  color: #9a9a9a;
+  font-size: 13px;
+  padding: 6px 20px 14px;
+}

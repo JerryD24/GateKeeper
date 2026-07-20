@@ -2,8 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>MyGate — Gym · Timeslots</title>
+  <link rel="manifest" href="../manifest.webmanifest" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="apple-touch-icon" href="../favicon.svg" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/reset.css" />
   <link rel="stylesheet" href="../assets/css/phone.css" />
@@ -15,6 +19,7 @@
       gap: 16px;
       padding: 18px 20px;
       border-bottom: 1px solid #ededed;
+      cursor: pointer;
     }
     .slot__box {
       width: 26px;
@@ -26,19 +31,12 @@
       align-items: center;
       justify-content: center;
     }
-    .slot__box--checked {
-      background: #14371f;
-      border-color: #14371f;
-    }
-    .slot__box--checked svg { width: 16px; height: 16px; }
-    .slot__time {
-      font-size: 19px;
-      color: #56b277;
-      font-weight: 500;
-    }
+    .slot__box svg { width: 16px; height: 16px; display: none; }
+    .slot__box--checked { background: #14371f; border-color: #14371f; }
+    .slot__box--checked svg { display: block; }
+    .slot__time { font-size: 19px; color: #56b277; font-weight: 500; }
     .slot-capacity {
-      padding: 0 20px 14px 62px;
-      margin-top: -8px;
+      padding: 4px 20px 16px 62px;
       color: #9b2c2c;
       font-size: 15px;
       border-bottom: 1px solid #ededed;
@@ -51,32 +49,19 @@
       flex-direction: column;
       gap: 22px;
     }
-    .panel-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 17px;
-      color: #333;
-    }
+    .panel-row { display: flex; align-items: center; gap: 12px; font-size: 17px; color: #333; }
     .panel-row svg.plus { width: 22px; height: 22px; }
+    .agree { cursor: pointer; }
     .agree-box {
-      width: 24px;
-      height: 24px;
-      border-radius: 7px;
-      background: #14371f;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex: 0 0 auto;
+      width: 24px; height: 24px; border-radius: 7px;
+      border: 2px solid #cfcfcf;
+      display: flex; align-items: center; justify-content: center; flex: 0 0 auto;
     }
-    .agree-box svg { width: 15px; height: 15px; }
-    .list-scrollhint {
-      height: 6px;
-      margin: 6px auto 0;
-      width: 60px;
-      border-radius: 3px;
-      background: #d0d0d0;
-    }
+    .agree-box svg { width: 15px; height: 15px; display: none; }
+    .agree-box--checked { background: #14371f; border-color: #14371f; }
+    .agree-box--checked svg { display: block; }
+    .list-scrollhint { height: 6px; margin: 6px auto 0; width: 60px; border-radius: 3px; background: #d0d0d0; }
+    #bookNowBtn { width: 60%; }
   </style>
 </head>
 <body>
@@ -94,7 +79,7 @@
           </span>
         </div>
 
-        <div class="appbar" data-nav="08_gym_date_selected.html">
+        <div class="appbar" data-nav="07_gym_date.html">
           <svg class="appbar__back" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
           <span class="appbar__title">Gym</span>
           <span class="pill-free">Free</span>
@@ -102,20 +87,14 @@
 
         <div class="app">
           <div class="list-scrollhint"></div>
-          <div class="slot"><span class="slot__box"></span><span class="slot__time">12 PM - 1 PM</span></div>
-          <div class="slot"><span class="slot__box"></span><span class="slot__time">1 PM - 2 PM</span></div>
-          <div class="slot"><span class="slot__box"></span><span class="slot__time">4 PM - 5 PM</span></div>
-          <div class="slot"><span class="slot__box"></span><span class="slot__time">5 PM - 6 PM</span></div>
-          <div class="slot"><span class="slot__box"></span><span class="slot__time">6 PM - 7 PM</span></div>
-          <div class="slot" style="border-bottom:none;">
-            <span class="slot__box slot__box--checked">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            </span>
-            <span class="slot__time">7 PM - 8 PM</span>
-          </div>
-          <div class="slot-capacity">Remaining booking capacity is 18</div>
-          <div class="slot"><span class="slot__box"></span><span class="slot__time">8 PM - 9 PM</span></div>
-          <div class="slot"><span class="slot__box"></span><span class="slot__time">9 PM - 10 PM</span></div>
+          <div class="slot"><span class="slot__box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span class="slot__time">12 PM - 1 PM</span></div>
+          <div class="slot"><span class="slot__box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span class="slot__time">1 PM - 2 PM</span></div>
+          <div class="slot"><span class="slot__box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span class="slot__time">4 PM - 5 PM</span></div>
+          <div class="slot"><span class="slot__box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span class="slot__time">5 PM - 6 PM</span></div>
+          <div class="slot"><span class="slot__box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span class="slot__time">6 PM - 7 PM</span></div>
+          <div class="slot"><span class="slot__box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span class="slot__time">7 PM - 8 PM</span></div>
+          <div class="slot"><span class="slot__box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span class="slot__time">8 PM - 9 PM</span></div>
+          <div class="slot"><span class="slot__box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span class="slot__time">9 PM - 10 PM</span></div>
         </div>
 
         <div class="booknow-panel">
@@ -123,19 +102,21 @@
             <svg class="plus" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
             <span>Add Comments &amp; Attachments</span>
           </div>
-          <div class="panel-row">
-            <span class="agree-box">
+          <div class="panel-row agree" id="agreeRow">
+            <span class="agree-box agree-box--checked" id="agreeBox">
               <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
             </span>
             <span>I agree to the <span class="link" style="text-decoration:underline;">Terms &amp; Conditions</span></span>
           </div>
-          <div class="btn-yellow" data-nav="10_booking_success.html" style="width:60%;">Book Now</div>
+          <div class="btn-disabled" id="bookNowBtn">Book Now</div>
         </div>
 
         <div class="phone__home-indicator"></div>
       </div>
     </div>
   </div>
+  <script src="../assets/js/pwa.js"></script>
   <script src="../assets/js/nav.js"></script>
+  <script src="../assets/js/timeslots.js"></script>
 </body>
 </html>
