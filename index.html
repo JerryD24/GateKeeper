@@ -131,8 +131,8 @@
   <div class="wrap">
     <header class="head">
       <span class="head__badge">● GateKeeper</span>
-      <h1>MyGate — Static Screen Clones</h1>
-      <p>Pixel-accurate recreations of the app, each rendered inside a phone frame. Tap any screen to open it full size.</p>
+      <h1>MyGate — Gym Booking Flow</h1>
+      <p>Pixel-accurate recreations of the app, each rendered inside a phone frame. Tap screen 01 and walk the whole booking flow, or open any screen directly.</p>
     </header>
 
     <main class="grid" id="grid"></main>
@@ -141,7 +141,16 @@
   <script>
     // Register each screen here in sequence as it's built.
     const SCREENS = [
-      // { file: 'screens/01_splash.html', label: 'Splash' },
+      { file: 'screens/01_launch.html', label: 'App Launch' },
+      { file: 'screens/02_home.html', label: 'Home' },
+      { file: 'screens/03_quick_actions.html', label: 'Quick Actions' },
+      { file: 'screens/04_amenities.html', label: 'Amenities · My Bookings' },
+      { file: 'screens/05_choose_location.html', label: 'Choose Location' },
+      { file: 'screens/06_select_amenity.html', label: 'Select Amenity' },
+      { file: 'screens/07_gym_date.html', label: 'Gym · Select a Date' },
+      { file: 'screens/08_gym_date_selected.html', label: 'Date Selected' },
+      { file: 'screens/09_gym_timeslots.html', label: 'Gym · Timeslots' },
+      { file: 'screens/10_booking_success.html', label: 'Booking Successful' },
     ];
 
     const grid = document.getElementById('grid');

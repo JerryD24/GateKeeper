@@ -55,42 +55,48 @@
   flex-direction: column;
 }
 
-/* Dynamic island / notch */
-.phone__notch {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 30px;
-  background: #0b0d12;
-  border-radius: 18px;
-  z-index: 50;
-  pointer-events: none;
-}
-
-/* iOS-style status bar */
+/* Android-style status bar */
 .statusbar {
   flex: 0 0 auto;
-  height: 50px;
+  height: 34px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 26px;
-  font-size: 14px;
+  padding: 0 16px 0 20px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--mg-text);
   background: transparent;
+  z-index: 40;
 }
 
 .statusbar__time {
-  letter-spacing: 0.5px;
+  letter-spacing: 0.2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.statusbar__time svg {
+  width: 14px;
+  height: 14px;
 }
 
 .statusbar__icons {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
+}
+
+.statusbar__icons svg {
+  width: 15px;
+  height: 15px;
+}
+
+.statusbar__batt {
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 1px;
 }
 
 /* App content region — scrolls */
@@ -106,17 +112,22 @@
   display: none;
 }
 
-/* Home indicator */
+/* Android gesture pill */
 .phone__home-indicator {
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 134px;
+  flex: 0 0 auto;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.phone__home-indicator::after {
+  content: '';
+  width: 128px;
   height: 5px;
   border-radius: 3px;
-  background: rgba(0, 0, 0, 0.35);
-  z-index: 50;
+  background: rgba(0, 0, 0, 0.45);
 }
 
 /* Utility: back-to-launcher chip (only on screen pages) */
