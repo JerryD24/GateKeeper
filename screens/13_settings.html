@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>MyGate — Settings</title>
+  <link rel="manifest" href="../manifest.webmanifest" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="apple-touch-icon" href="../assets/img/logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/reset.css" />
+  <link rel="stylesheet" href="../assets/css/phone.css" />
+  <link rel="stylesheet" href="../assets/css/mygate.css" />
+  <style>
+    .set-screen { background: #f1f0ee; }
+
+    .set-appbar {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 16px 18px;
+      background: #fff;
+    }
+    .set-appbar__title { font-size: 22px; font-weight: 600; color: #222; flex: 1; }
+    .set-appbar__ic { width: 26px; height: 26px; color: #333; flex: 0 0 auto; }
+    .set-appbar__coin {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: #f5a623; flex: 0 0 auto;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .set-appbar__coin svg { width: 15px; height: 15px; }
+
+    /* Profile block */
+    .prof {
+      background: #fff;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 18px 22px;
+    }
+    .prof__avatar {
+      width: 76px; height: 76px; border-radius: 50%;
+      background: #4f9e6a; color: #fff; flex: 0 0 auto;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; font-weight: 700;
+    }
+    .prof__right { flex: 1; min-width: 0; }
+    .prof__name { font-size: 21px; font-weight: 700; color: #1f1f1f; margin-bottom: 10px; }
+    .prof__idrow { display: flex; align-items: center; gap: 10px; }
+    .prof__id {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #eef0f0; border-radius: 999px;
+      padding: 8px 14px; font-size: 15px; color: #444;
+    }
+    .prof__id b { color: #1f1f1f; font-weight: 700; }
+    .prof__id svg { width: 15px; height: 15px; color: #8a8a8a; }
+    .prof__qr {
+      width: 42px; height: 42px; border-radius: 10px;
+      background: #f3f4f4; flex: 0 0 auto;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .prof__qr svg { width: 24px; height: 24px; color: #222; }
+
+    /* Complete-profile strip */
+    .complete {
+      background: #fff;
+      border-top: 1px solid #f0f0f0;
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 18px;
+    }
+    .ring {
+      width: 44px; height: 44px; border-radius: 50%; flex: 0 0 auto;
+      background: conic-gradient(#e8607a 0 33%, #f4dfe4 33% 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ring__inner {
+      width: 34px; height: 34px; border-radius: 50%; background: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; color: #e8607a;
+    }
+    .complete__txt { flex: 1; font-size: 15px; color: #4a4a4a; line-height: 1.35; }
+    .complete__link { color: #12805c; font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; gap: 2px; white-space: nowrap; }
+    .complete__link svg { width: 16px; height: 16px; }
+
+    /* Update banner */
+    .update {
+      background: #fff; margin-top: 10px;
+      display: flex; align-items: center; gap: 14px;
+      padding: 18px;
+    }
+    .update svg.phone-ic { width: 30px; height: 30px; color: #333; flex: 0 0 auto; }
+    .update__txt { flex: 1; font-size: 17px; font-weight: 700; color: #1f1f1f; }
+    .update__btn {
+      background: #f7d000; color: #1a1a1a;
+      padding: 12px 26px; border-radius: 999px;
+      font-size: 16px; font-weight: 700;
+    }
+
+    /* Sections */
+    .section { background: #fff; margin-top: 10px; padding: 18px; }
+    .section__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .section__title { display: inline-flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 700; color: #1f1f1f; }
+    .section__title svg { width: 22px; height: 22px; color: #333; }
+    .section__link { color: #12805c; font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; gap: 2px; }
+    .section__link svg { width: 16px; height: 16px; }
+
+    /* Household grid */
+    .hh-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .hh-tile {
+      border: 1px solid #ededed; border-radius: 12px;
+      padding: 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    }
+    .hh-tile__label { min-width: 0; }
+    .hh-tile__t { font-size: 16px; font-weight: 600; color: #2a2a2a; }
+    .hh-tile__s { font-size: 14px; color: #8a8a8a; margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .hh-tile__add { font-size: 15px; font-weight: 700; color: #2a2a2a; margin-top: 3px; }
+    .hh-ic {
+      position: relative; width: 44px; height: 44px; border-radius: 10px;
+      background: #f3f4f4; flex: 0 0 auto;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hh-ic svg { width: 26px; height: 26px; color: #333; }
+    .hh-ic__plus {
+      position: absolute; right: -6px; bottom: -6px;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: #f5c518; color: #1a1a1a; border: 2px solid #fff;
+      display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700;
+    }
+
+    /* Address */
+    .addr { border: 1px solid #ededed; border-radius: 12px; padding: 16px; margin-top: 16px; }
+    .addr__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .addr__title { font-size: 18px; font-weight: 600; color: #2a2a2a; }
+    .addr__share { color: #12805c; font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; gap: 6px; }
+    .addr__share svg { width: 16px; height: 16px; }
+    .addr__body { font-size: 16px; color: #8a8a8a; line-height: 1.45; }
+
+    .set-section-title { padding: 20px 18px 10px; font-size: 20px; font-weight: 700; color: #9a9a9a; }
+    .notif {
+      background: #ece8e2; margin: 0 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px;
+    }
+    .notif__t { font-size: 17px; font-weight: 600; color: #2a2a2a; }
+    .notif__link { color: #12805c; font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; gap: 2px; }
+    .notif__link svg { width: 16px; height: 16px; }
+  </style>
+</head>
+<body>
+  <a class="launcher-back" href="../index.html">← All screens</a>
+  <div class="stage">
+    <div class="phone">
+      <div class="phone__screen set-screen">
+        <div class="set-appbar">
+          <svg class="set-appbar__ic" data-nav="02_home.html" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <span class="set-appbar__title">Settings</span>
+          <svg class="set-appbar__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 015 0c0 1.7-2.5 2-2.5 4"/><circle cx="12" cy="17.5" r="0.6" fill="currentColor"/></svg>
+          <span class="set-appbar__coin"><svg viewBox="0 0 24 24" fill="#fff"><path d="M3 8l4 4 5-7 5 7 4-4v9H3z"/></svg></span>
+        </div>
+
+        <div class="app">
+          <div class="prof">
+            <span class="prof__avatar">SN</span>
+            <div class="prof__right">
+              <div class="prof__name">Sumanta Nag</div>
+              <div class="prof__idrow">
+                <span class="prof__id">mygate ID <b>209&nbsp;923</b>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><circle cx="12" cy="7.5" r="0.6" fill="currentColor"/></svg>
+                </span>
+                <span class="prof__qr">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M20 14v.01M14 20h.01M17 20h3v-3"/></svg>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="complete">
+            <span class="ring"><span class="ring__inner">33%</span></span>
+            <span class="complete__txt">Let neighbours discover you!<br />Complete your profile</span>
+            <span class="complete__link">View Profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></span>
+          </div>
+
+          <div class="update">
+            <svg class="phone-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 5h2"/><path d="M12 9l3 3-3 3M15 12H9"/></svg>
+            <span class="update__txt">App update available</span>
+            <span class="update__btn">Update</span>
+          </div>
+
+          <div class="section">
+            <div class="section__head">
+              <span class="section__title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><circle cx="16.5" cy="9" r="2.6"/><path d="M3.5 19c0-3 2.6-4.5 5.5-4.5s5.5 1.5 5.5 4.5M15 14.5c2.6 0 5 1.3 5 4.5"/></svg>
+                Household
+              </span>
+              <span class="section__link">Manage <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></span>
+            </div>
+
+            <div class="hh-grid">
+              <div class="hh-tile">
+                <span class="hh-tile__label">
+                  <div class="hh-tile__t">My Housemates</div>
+                  <div class="hh-tile__s">1 member</div>
+                </span>
+                <span class="hh-ic">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 20c0-3.6 2.9-5.5 6.5-5.5s6.5 1.9 6.5 5.5"/></svg>
+                  <span class="hh-ic__plus">+</span>
+                </span>
+              </div>
+
+              <div class="hh-tile">
+                <span class="hh-tile__label">
+                  <div class="hh-tile__t">Daily Help</div>
+                  <div class="hh-tile__s">Rupa Siddaram...</div>
+                </span>
+                <span class="hh-ic">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="7" r="3.2"/><path d="M6 21c0-3.6 2.7-6 6-6s6 2.4 6 6"/><path d="M9 12l-2 3M15 12l2 3"/></svg>
+                  <span class="hh-ic__plus">+</span>
+                </span>
+              </div>
+
+              <div class="hh-tile">
+                <span class="hh-tile__label">
+                  <div class="hh-tile__t">Vehicles</div>
+                  <div class="hh-tile__add">+ Add</div>
+                </span>
+                <span class="hh-ic">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 16l1.5-5A2 2 0 018.4 9.6h7.2a2 2 0 011.9 1.4L19 16"/><path d="M4 16h16v3H4z"/><circle cx="7.5" cy="18.5" r="1.3"/><circle cx="16.5" cy="18.5" r="1.3"/></svg>
+                  <span class="hh-ic__plus">+</span>
+                </span>
+              </div>
+
+              <div class="hh-tile">
+                <span class="hh-tile__label">
+                  <div class="hh-tile__t">Pets</div>
+                  <div class="hh-tile__add">+ Add</div>
+                </span>
+                <span class="hh-ic">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="7" cy="10" r="1.8"/><circle cx="12" cy="8" r="1.8"/><circle cx="17" cy="10" r="1.8"/><path d="M12 12c-2.4 0-4.5 1.9-4.5 4 0 1.4 1.1 2.2 2.4 2.2.9 0 1.4-.4 2.1-.4s1.2.4 2.1.4c1.3 0 2.4-.8 2.4-2.2 0-2.1-2.1-4-4.5-4z"/></svg>
+                  <span class="hh-ic__plus">+</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="addr">
+              <div class="addr__head">
+                <span class="addr__title">My Address</span>
+                <span class="addr__share">Share
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.6M8.2 13.2l7.6 4.6"/></svg>
+                </span>
+              </div>
+              <div class="addr__body">7th Floor, T9B 0704, Rejuve Co-Operative Housing Society Limited, Survey no: 9 to 14, near Renuka</div>
+            </div>
+          </div>
+
+          <div class="set-section-title">Security &amp; Notifications</div>
+          <div class="notif">
+            <span class="notif__t">Not Getting Notifications ?</span>
+            <span class="notif__link">Test Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></span>
+          </div>
+        </div>
+
+        <div class="phone__home-indicator"></div>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/js/pwa.js"></script>
+  <script src="../assets/js/nav.js"></script>
+</body>
+</html>
