@@ -1,10 +1,10 @@
 /* GateKeeper service worker — app-shell cache, network-first for freshness. */
-const CACHE = 'mygate-v4';
+const CACHE = 'mygate-v5';
 const ASSETS = [
   './',
   './index.html',
   './manifest.webmanifest',
-  './favicon.svg',
+  './assets/img/logo.png',
   './assets/css/reset.css',
   './assets/css/phone.css',
   './assets/css/mygate.css',

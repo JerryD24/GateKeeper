@@ -4,15 +4,15 @@
   "description": "MyGate app clone — amenity booking flow. Works offline.",
   "icons": [
     {
-      "src": "favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
+      "src": "assets/img/logo.png",
+      "sizes": "256x256",
+      "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
+      "src": "assets/img/logo.png",
+      "sizes": "256x256",
+      "type": "image/png",
       "purpose": "maskable"
     }
   ],
