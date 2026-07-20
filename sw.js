@@ -1,5 +1,5 @@
 /* GateKeeper service worker — app-shell cache, network-first for freshness. */
-const CACHE = 'mygate-v2';
+const CACHE = 'mygate-v3';
 const ASSETS = [
   './',
   './index.html',
@@ -23,7 +23,8 @@ const ASSETS = [
   './screens/07_gym_date.html',
   './screens/09_gym_timeslots.html',
   './screens/10_booking_success.html',
-  './screens/11_outdoor_games.html'
+  './screens/11_outdoor_games.html',
+  './screens/12_indoor_games.html'
 ];
 
 self.addEventListener('install', (e) => {
