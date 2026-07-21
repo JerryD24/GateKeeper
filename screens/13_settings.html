@@ -41,7 +41,7 @@
     }
     .prof__avatar {
       width: 76px; height: 76px; border-radius: 50%;
-      background: #4f9e6a; color: #fff; flex: 0 0 auto;
+      background: #b3982f; color: #fff; flex: 0 0 auto;
       display: flex; align-items: center; justify-content: center;
       font-size: 26px; font-weight: 700;
     }
@@ -71,7 +71,7 @@
     }
     .ring {
       width: 44px; height: 44px; border-radius: 50%; flex: 0 0 auto;
-      background: conic-gradient(#e8607a 0 33%, #f4dfe4 33% 100%);
+      background: conic-gradient(#e8607a 0 0%, #f4dfe4 0% 100%);
       display: flex; align-items: center; justify-content: center;
     }
     .ring__inner {
@@ -121,6 +121,8 @@
       display: flex; align-items: center; justify-content: center;
     }
     .hh-ic svg { width: 26px; height: 26px; color: #333; }
+    .hh-ic--brand { background: #e23744; }
+    .hh-brand { color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 0.2px; }
     .hh-ic__plus {
       position: absolute; right: -6px; bottom: -6px;
       width: 20px; height: 20px; border-radius: 50%;
@@ -138,13 +140,22 @@
 
     .set-section-title { padding: 20px 18px 10px; font-size: 20px; font-weight: 700; color: #9a9a9a; }
     .notif {
-      background: #ece8e2; margin: 0 0 24px;
+      background: #ece8e2; margin: 0;
       display: flex; align-items: center; justify-content: space-between;
       padding: 18px;
     }
     .notif__t { font-size: 17px; font-weight: 600; color: #2a2a2a; }
     .notif__link { color: #12805c; font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; gap: 2px; }
     .notif__link svg { width: 16px; height: 16px; }
+
+    .npref {
+      background: #fff; margin: 0 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px;
+    }
+    .npref__left { display: inline-flex; align-items: center; gap: 14px; font-size: 17px; font-weight: 600; color: #2a2a2a; }
+    .npref__left svg { width: 24px; height: 24px; color: #333; }
+    .npref__chev { width: 20px; height: 20px; color: #8a8a8a; }
   </style>
 </head>
 <body>
@@ -161,11 +172,11 @@
 
         <div class="app">
           <div class="prof">
-            <span class="prof__avatar">SN</span>
+            <span class="prof__avatar">YS</span>
             <div class="prof__right">
-              <div class="prof__name">Sumanta Nag</div>
+              <div class="prof__name">yogender singh</div>
               <div class="prof__idrow">
-                <span class="prof__id">mygate ID <b>209&nbsp;923</b>
+                <span class="prof__id">mygate ID <b>288&nbsp;903</b>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><circle cx="12" cy="7.5" r="0.6" fill="currentColor"/></svg>
                 </span>
                 <span class="prof__qr">
@@ -176,15 +187,9 @@
           </div>
 
           <div class="complete">
-            <span class="ring"><span class="ring__inner">33%</span></span>
+            <span class="ring"><span class="ring__inner">0%</span></span>
             <span class="complete__txt">Let neighbours discover you!<br />Complete your profile</span>
             <span class="complete__link">View Profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></span>
-          </div>
-
-          <div class="update">
-            <svg class="phone-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 5h2"/><path d="M12 9l3 3-3 3M15 12H9"/></svg>
-            <span class="update__txt">App update available</span>
-            <span class="update__btn">Update</span>
           </div>
 
           <div class="section">
@@ -200,18 +205,17 @@
               <div class="hh-tile">
                 <span class="hh-tile__label">
                   <div class="hh-tile__t">My Housemates</div>
-                  <div class="hh-tile__s">1 member</div>
+                  <div class="hh-tile__s">3 members</div>
                 </span>
                 <span class="hh-ic">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 20c0-3.6 2.9-5.5 6.5-5.5s6.5 1.9 6.5 5.5"/></svg>
-                  <span class="hh-ic__plus">+</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="8" cy="9" r="2.7"/><path d="M3 19c0-2.8 2.2-4.3 5-4.3s5 1.5 5 4.3"/><circle cx="16.5" cy="9.5" r="2.4"/><path d="M14 15c2.3-.3 6 .8 6 4"/></svg>
                 </span>
               </div>
 
               <div class="hh-tile">
                 <span class="hh-tile__label">
                   <div class="hh-tile__t">Daily Help</div>
-                  <div class="hh-tile__s">Rupa Siddaram...</div>
+                  <div class="hh-tile__s">Sarika Gaikwad</div>
                 </span>
                 <span class="hh-ic">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="7" r="3.2"/><path d="M6 21c0-3.6 2.7-6 6-6s6 2.4 6 6"/><path d="M9 12l-2 3M15 12l2 3"/></svg>
@@ -226,6 +230,17 @@
                 </span>
                 <span class="hh-ic">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 16l1.5-5A2 2 0 018.4 9.6h7.2a2 2 0 011.9 1.4L19 16"/><path d="M4 16h16v3H4z"/><circle cx="7.5" cy="18.5" r="1.3"/><circle cx="16.5" cy="18.5" r="1.3"/></svg>
+                  <span class="hh-ic__plus">+</span>
+                </span>
+              </div>
+
+              <div class="hh-tile">
+                <span class="hh-tile__label">
+                  <div class="hh-tile__t">Always Approve</div>
+                  <div class="hh-tile__s">Zomato, +6</div>
+                </span>
+                <span class="hh-ic hh-ic--brand">
+                  <span class="hh-brand">zomato</span>
                   <span class="hh-ic__plus">+</span>
                 </span>
               </div>
@@ -249,14 +264,21 @@
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.6M8.2 13.2l7.6 4.6"/></svg>
                 </span>
               </div>
-              <div class="addr__body">7th Floor, T9B 0704, Rejuve Co-Operative Housing Society Limited, Survey no: 9 to 14, near Renuka</div>
+              <div class="addr__body">19th Floor, T7B 1904, Rejuve Co-Operative Housing Society Limited, Survey no: 9 to 14, near Renuka Mata mandir, Pune-411036</div>
             </div>
           </div>
 
           <div class="set-section-title">Security &amp; Notifications</div>
           <div class="notif">
-            <span class="notif__t">Not Getting Notifications ?</span>
+            <span class="notif__t">Not Getting Notifications?</span>
             <span class="notif__link">Test Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></span>
+          </div>
+          <div class="npref">
+            <span class="npref__left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9a6 6 0 1112 0c0 4 1.5 5.5 2 6H4c.5-.5 2-2 2-6z"/><path d="M10 19a2 2 0 004 0"/></svg>
+              Notification Preferences
+            </span>
+            <svg class="npref__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg>
           </div>
         </div>
 

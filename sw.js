@@ -1,5 +1,5 @@
 /* GateKeeper service worker — app-shell cache, network-first for freshness. */
-const CACHE = 'mygate-v7';
+const CACHE = 'mygate-v8';
 const ASSETS = [
   './',
   './index.html',

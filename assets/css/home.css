@@ -22,7 +22,7 @@
 .home-actions svg { width: 23px; height: 23px; }
 .home-avatar {
   width: 34px; height: 34px; border-radius: 50%;
-  background: #3f9e63; color: #fff;
+  background: #b3982f; color: #fff;
   display: flex; align-items: center; justify-content: center;
   font-size: 14px; font-weight: 700;
   cursor: pointer;
