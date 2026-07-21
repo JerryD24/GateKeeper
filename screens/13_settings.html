@@ -156,6 +156,47 @@
     .npref__left { display: inline-flex; align-items: center; gap: 14px; font-size: 17px; font-weight: 600; color: #2a2a2a; }
     .npref__left svg { width: 24px; height: 24px; color: #333; }
     .npref__chev { width: 20px; height: 20px; color: #8a8a8a; }
+
+    .prof__switch {
+      display: inline-flex; align-items: center; gap: 5px;
+      color: #12805c; font-weight: 700; font-size: 14px;
+      margin-top: 10px; cursor: pointer;
+    }
+    .prof__switch svg { width: 16px; height: 16px; }
+    .prof__avatar { cursor: pointer; }
+
+    /* Profile switch bottom sheet */
+    .psheet-backdrop {
+      position: absolute; inset: 0; background: rgba(0, 0, 0, 0.45);
+      z-index: 60; display: none;
+    }
+    .psheet-backdrop.open { display: block; }
+    .psheet {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      background: #fff; border-radius: 16px 16px 0 0; z-index: 61;
+      transform: translateY(100%); transition: transform 0.25s ease;
+    }
+    .psheet.open { transform: translateY(0); }
+    .psheet__head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px; border-bottom: 1px solid #eee;
+    }
+    .psheet__title { font-size: 18px; font-weight: 700; color: #1f1f1f; }
+    .psheet__close { font-size: 22px; line-height: 1; color: #666; cursor: pointer; padding: 0 4px; }
+    .psheet__item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 18px; border-bottom: 1px solid #f2f2f2; cursor: pointer;
+    }
+    .psheet__item:last-child { border-bottom: none; }
+    .psheet__item--active { background: #f6faf8; }
+    .psheet__av {
+      width: 44px; height: 44px; border-radius: 50%; color: #fff; flex: 0 0 auto;
+      display: flex; align-items: center; justify-content: center; font-weight: 700;
+    }
+    .psheet__meta { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+    .psheet__name { font-size: 17px; font-weight: 600; color: #1f1f1f; }
+    .psheet__id { font-size: 13px; color: #8a8a8a; }
+    .psheet__check { width: 22px; height: 22px; color: #12805c; flex: 0 0 auto; }
   </style>
 </head>
 <body>
@@ -172,22 +213,26 @@
 
         <div class="app">
           <div class="prof">
-            <span class="prof__avatar">YS</span>
+            <span class="prof__avatar" id="profAvatar"><span id="profInitials">YS</span></span>
             <div class="prof__right">
-              <div class="prof__name">yogender singh</div>
+              <div class="prof__name" id="profName">yogender singh</div>
               <div class="prof__idrow">
-                <span class="prof__id">mygate ID <b>288&nbsp;903</b>
+                <span class="prof__id">mygate ID <b id="profId">288 903</b>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><circle cx="12" cy="7.5" r="0.6" fill="currentColor"/></svg>
                 </span>
                 <span class="prof__qr">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M20 14v.01M14 20h.01M17 20h3v-3"/></svg>
                 </span>
               </div>
+              <span class="prof__switch" id="switchProfile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 4l3 3-3 3"/><path d="M20 7H8a4 4 0 00-4 4"/><path d="M7 20l-3-3 3-3"/><path d="M4 17h12a4 4 0 004-4"/></svg>
+                Switch profile
+              </span>
             </div>
           </div>
 
           <div class="complete">
-            <span class="ring"><span class="ring__inner">0%</span></span>
+            <span class="ring" id="ring"><span class="ring__inner" id="ringInner">0%</span></span>
             <span class="complete__txt">Let neighbours discover you!<br />Complete your profile</span>
             <span class="complete__link">View Profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></span>
           </div>
@@ -205,7 +250,7 @@
               <div class="hh-tile">
                 <span class="hh-tile__label">
                   <div class="hh-tile__t">My Housemates</div>
-                  <div class="hh-tile__s">3 members</div>
+                  <div class="hh-tile__s" id="hhHousemates">3 members</div>
                 </span>
                 <span class="hh-ic">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="8" cy="9" r="2.7"/><path d="M3 19c0-2.8 2.2-4.3 5-4.3s5 1.5 5 4.3"/><circle cx="16.5" cy="9.5" r="2.4"/><path d="M14 15c2.3-.3 6 .8 6 4"/></svg>
@@ -215,7 +260,7 @@
               <div class="hh-tile">
                 <span class="hh-tile__label">
                   <div class="hh-tile__t">Daily Help</div>
-                  <div class="hh-tile__s">Sarika Gaikwad</div>
+                  <div class="hh-tile__s" id="hhDailyHelp">Sarika Gaikwad</div>
                 </span>
                 <span class="hh-ic">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="7" r="3.2"/><path d="M6 21c0-3.6 2.7-6 6-6s6 2.4 6 6"/><path d="M9 12l-2 3M15 12l2 3"/></svg>
@@ -237,7 +282,7 @@
               <div class="hh-tile">
                 <span class="hh-tile__label">
                   <div class="hh-tile__t">Always Approve</div>
-                  <div class="hh-tile__s">Zomato, +6</div>
+                  <div class="hh-tile__s" id="hhAlwaysApprove">Zomato, +6</div>
                 </span>
                 <span class="hh-ic hh-ic--brand">
                   <span class="hh-brand">zomato</span>
@@ -264,7 +309,7 @@
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.6M8.2 13.2l7.6 4.6"/></svg>
                 </span>
               </div>
-              <div class="addr__body">19th Floor, T7B 1904, Rejuve Co-Operative Housing Society Limited, Survey no: 9 to 14, near Renuka Mata mandir, Pune-411036</div>
+              <div class="addr__body" id="addrBody">19th Floor, T7B 1904, Rejuve Co-Operative Housing Society Limited, Survey no: 9 to 14, near Renuka Mata mandir, Pune-411036</div>
             </div>
           </div>
 
@@ -282,11 +327,21 @@
           </div>
         </div>
 
+        <div class="psheet-backdrop" id="profileBackdrop"></div>
+        <div class="psheet" id="profileSheet">
+          <div class="psheet__head">
+            <span class="psheet__title">Switch Profile</span>
+            <span class="psheet__close" id="profileSheetClose">&times;</span>
+          </div>
+          <div id="profileSheetList"></div>
+        </div>
+
         <div class="phone__home-indicator"></div>
       </div>
     </div>
   </div>
   <script src="../assets/js/pwa.js"></script>
   <script src="../assets/js/nav.js"></script>
+  <script src="../assets/js/profiles.js"></script>
 </body>
 </html>

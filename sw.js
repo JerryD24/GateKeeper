@@ -1,5 +1,5 @@
 /* GateKeeper service worker — app-shell cache, network-first for freshness. */
-const CACHE = 'mygate-v8';
+const CACHE = 'mygate-v9';
 const ASSETS = [
   './',
   './index.html',
@@ -16,6 +16,7 @@ const ASSETS = [
   './assets/js/gym.js',
   './assets/js/timeslots.js',
   './assets/js/bookings.js',
+  './assets/js/profiles.js',
   './screens/02_home.html',
   './screens/03_quick_actions.html',
   './screens/04_amenities.html',
